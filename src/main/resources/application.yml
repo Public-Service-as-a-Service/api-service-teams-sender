@@ -29,7 +29,7 @@ azure:
       clientSecret: client-secret
       authorityUrl: https://login.microsoftonline.com
       redirectUri: http://localhost:8080/callback
-      loginUrl: https://login.microsoftonline.com/login
+      loginUrl: https://login.microsoftonline.com
 
 graph:
   base-url: https://graph.microsoft.com/v1.0
