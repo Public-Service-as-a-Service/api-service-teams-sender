@@ -17,8 +17,8 @@ _Sending messages from the messaging service to teams users._
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Sundsvallskommun/YOUR-PROJECT-ID.git
-   cd YOUR-PROJECT-ID
+   git clone https://github.com/Public-Service-as-a-Service/api-service-teams-sender.git
+   cd api-service-teams-sender
    ```
 2. **Configure the application:**
 
@@ -41,9 +41,9 @@ _Sending messages from the messaging service to teams users._
 
 This microservice depends on the following services:
 
-- **Service Name**
-  - **Purpose:** Brief description of what the dependent service does.
-  - **Repository:** [Link to the repository](https://github.com/Sundsvallskommun/service_name)
+- **Microsoft Graph**
+  - **Purpose:** To send messages over teams.
+  - **Repository:** [Link to the repository](https://learn.microsoft.com/sv-se/graph/overview)
   - **Setup Instructions:** Refer to its documentation for installation and configuration steps.
 
 Ensure that these services are running and properly configured before starting this microservice.
@@ -89,30 +89,22 @@ Configuration is crucial for the application to run successfully. Ensure all nec
       username: your_db_username
       password: your_db_password
   ```
-- **External Service URLs:**
-
-  ```yaml
-  integration:
-    service:
-      url: http://dependency_service_url
-      oauth2:
-        client-id: some-client-id
-        client-secret: some-client-secret
-
-  service:
-    oauth2:
-      token-url: http://dependecy_service_token_url
-  ```
-
-### Database Initialization
-
-The project is set up with [Flyway](https://github.com/flyway/flyway) for database migrations. Flyway is disabled by default so you will have to enable it to automatically populate the database schema upon application startup.
+- **Azure Setup**
 
 ```yaml
-spring:
-  flyway:
-    enabled: true
+azure:
+  ad:
+    "2281":
+      user: user
+      clientId: client-id
+      tenantId: tenant-id
+      clientSecret: client-secret
+      authorityUrl: https://login.microsoftonline.com
+      redirectUri: http://localhost:8080/callback
+      loginUrl: https://login.microsoftonline.com/login 
 ```
+
+### Database Initialization
 
 - **No additional setup is required** for database initialization, as long as the database connection settings are correctly configured.
 
@@ -136,12 +128,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Code status
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-teams-sender&metric=alert_status)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-teams-sender)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-teams-sender&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-teams-sender
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-teams-sender&metric=security_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-teams-sender)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-teams-sender&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-teams-sender)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-teams-sender&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-teams-sender)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-teams-sender&metric=bugs)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-teams-sender)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=YOUR-PROJECT-ID)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=YOUR-PROJECT-ID)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=YOUR-PROJECT-ID)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=YOUR-PROJECT-ID)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=YOUR-PROJECT-ID)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=YOUR-PROJECT-ID)
 
 ---
 
