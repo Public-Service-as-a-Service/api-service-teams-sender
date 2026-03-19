@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.ResponseEntity;
 import se.sundsvall.teamssender.auth.integration.StaticTokenCredential;
 import se.sundsvall.teamssender.auth.repository.ITokenCacheRepository;
 import se.sundsvall.teamssender.auth.service.TokenService;
@@ -27,6 +28,11 @@ public class MockTokenServiceConfiguration {
 			@Override
 			public String getAccessTokenForUser(String municipalityId) {
 				return "mock-access-token";
+			}
+
+			@Override
+			public ResponseEntity<String> exchangeAuthCodeForToken(String code, String municipalityId) {
+				return ResponseEntity.ok("mock-token-success");
 			}
 
 			@Override

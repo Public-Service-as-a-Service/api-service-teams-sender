@@ -9,12 +9,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import se.sundsvall.dept44.common.validators.annotation.ValidMunicipalityId;
 import se.sundsvall.teamssender.auth.service.TokenService;
 import se.sundsvall.teamssender.configuration.AzureConfig;
 
 @RestController
+@RequestMapping("/api/teamssender")
 class AuthResource {
 
 	private final AzureConfig azureConfig;
